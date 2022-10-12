@@ -10,7 +10,7 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 ColumnLayout {
     id: fullRoot
 
-    Layout.fillHeight: plasmoid.formFactor === PlasmaCore.Types.Vertical
+    //Layout.fillHeight: plasmoid.formFactor === PlasmaCore.Types.Vertical
 
     PlasmaExtras.Heading {
         Layout.fillWidth: true
@@ -121,7 +121,7 @@ ColumnLayout {
 
             disconnectSource(sourceName); // cmd finished
         }
-        
+
         function exec(cmd) {
             connectSource(cmd);
         }
