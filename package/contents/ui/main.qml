@@ -18,7 +18,12 @@ Item {
     Plasmoid.compactRepresentation: CompactRepresentation {}
     Plasmoid.fullRepresentation: FullRepresentation {}
 
-    Plasmoid.status: PlasmaCore.Types.ActiveStatus
+    Plasmoid.status: {
+        if (headsetcontrol.available) {
+            return PlasmaCore.Types.ActiveStatus;
+        }
+        return PlasmaCore.Types.InactiveStatus;
+    }
     Plasmoid.icon: "headset"
 
     Plasmoid.toolTipMainText: headsetcontrol.model
