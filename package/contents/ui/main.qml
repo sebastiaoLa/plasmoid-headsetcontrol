@@ -22,7 +22,7 @@ Item {
         if (headsetcontrol.available) {
             return PlasmaCore.Types.ActiveStatus;
         }
-        return PlasmaCore.Types.InactiveStatus;
+        return PlasmaCore.Types.PassiveStatus;
     }
     Plasmoid.icon: "headset"
 
