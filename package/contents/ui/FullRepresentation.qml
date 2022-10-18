@@ -24,10 +24,31 @@ ColumnLayout {
         text: headsetcontrol.status
     }
 
+    // Why there is no separator Component built-in is beyond me.
+    Item {
+        height: headsetStatus.height
+
+        Layout.fillWidth: true
+
+        Rectangle {
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+
+            // same as MenuItem background
+            implicitWidth: PlasmaCore.Units.gridUnit * 8
+            implicitHeight: 1 //PlasmaCore.Units.devicePixelRatio
+            color: PlasmaCore.ColorScope.textColor
+            opacity: 0.2
+        }
+    }
+
+
     RowLayout {
         id: featureSidetone
         visible: headsetcontrol.features.includes("s")
 
+        Layout.fillHeight: false
         Layout.fillWidth: true
 
         PlasmaComponents.Slider {
@@ -55,6 +76,7 @@ ColumnLayout {
         id: featureLights
         visible: headsetcontrol.features.includes("l")
 
+        Layout.fillHeight: false
         Layout.fillWidth: true
 
         PlasmaComponents.Button {
@@ -74,6 +96,7 @@ ColumnLayout {
         id: featureVoicePrompt
         visible: headsetcontrol.features.includes("v")
 
+        Layout.fillHeight: false
         Layout.fillWidth: true
 
         PlasmaComponents.Button {
@@ -93,6 +116,7 @@ ColumnLayout {
         id: featureRotateToMute
         visible: headsetcontrol.features.includes("r")
 
+        Layout.fillHeight: false
         Layout.fillWidth: true
 
         PlasmaComponents.Button {
@@ -106,6 +130,11 @@ ColumnLayout {
             text: i18n("Disable rotate-to-mute")
             onClicked: headsetCommand.exec(plasmoid.configuration.binaryPath + ' -r 0')
         }
+    }
+
+    // Spacer item until I figure out how to resize the pop-up.
+    Item {
+        Layout.fillHeight: true
     }
 
     // Separate DataSource for non-polling commands. No signal here since we
