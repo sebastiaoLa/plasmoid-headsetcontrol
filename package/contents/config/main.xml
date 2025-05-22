@@ -5,9 +5,15 @@
     <group name="General">
         <entry name="binaryPath" type="Path">
             <default>/usr/local/bin/headsetcontrol</default>
+            <label>Path to headsetcontrol binary</label>
+            <whatsthis>Set the path to the headsetcontrol binary executable.</whatsthis>
         </entry>
         <entry name="pollingRate" type="Int">
             <default>5000</default>
+            <min>1000</min>
+            <max>60000</max>
+            <label>Polling rate (ms)</label>
+            <whatsthis>How often to check the headset status (in milliseconds).</whatsthis>
         </entry>
     </group>
 </kcfg>
