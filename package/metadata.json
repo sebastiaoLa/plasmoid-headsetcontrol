@@ -11,14 +11,12 @@
         "Icon": "headset",
         "Id": "com.github.lazy-stripes.headsetcontrol",
         "Name": "Headset Control",
-        "ServiceTypes": [
-            "Plasma/Applet"
-        ],
-        "Version": "1.1.0",
-        "Website": "https://github.com/lazy-stripes/plasmoid-headsetcontrol"
+        "Version": "1.1.1",
+        "Website": "https://github.com/lazy-stripes/plasmoid-headsetcontrol",
+        "License": "GPL-2.0-or-later"
     },
-    "X-Plasma-API": "declarativeappletscript",
-    "X-Plasma-MainScript": "ui/main.qml",
+    "KPackageStructure": "Plasma/Applet",
     "X-Plasma-NotificationArea": "true",
-    "X-Plasma-NotificationAreaCategory": "Hardware"
+    "X-Plasma-NotificationAreaCategory": "Hardware",
+    "X-Plasma-API-Minimum-Version": "6.0"
 }
