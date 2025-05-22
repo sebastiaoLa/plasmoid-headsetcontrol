@@ -1,20 +1,20 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.plasmoid 2.0
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kirigami as Kirigami
 
 MouseArea {
     id: compactRoot
 
     onClicked: plasmoid.expanded = !plasmoid.expanded
 
-    PlasmaCore.IconItem {
+    Kirigami.Icon {
         source: "headset"
         anchors.fill: parent
 
         // No receiver plugged in.
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             visible: !headsetcontrol.present
             width: parent.width / 4
             height: parent.height / 4
@@ -24,7 +24,7 @@ MouseArea {
         }
 
         // Receiver present, but no headset connected.
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             visible: headsetcontrol.present && !headsetcontrol.available
             width: parent.width / 4
             height: parent.height / 4
@@ -44,14 +44,14 @@ MouseArea {
                 width: (parent.width * headsetcontrol.percent) / 100
                 color: {
                     if (headsetcontrol.percent >= 90)
-                        return "green";
+                        return Kirigami.Theme.positiveTextColor;
                     if (headsetcontrol.percent >= 70)
-                        return "greenyellow";
+                        return Kirigami.Theme.neutralTextColor;
                     if (headsetcontrol.percent >= 50)
-                        return "lightgreen";
+                        return Kirigami.Theme.neutralTextColor;
                     if (headsetcontrol.percent >= 30)
-                        return "orange";
-                    return "red";
+                        return Kirigami.Theme.neutralTextColor;
+                    return Kirigami.Theme.negativeTextColor;
                 }
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
@@ -59,7 +59,7 @@ MouseArea {
 
             // Headset present and charging or plugged-in and fully charged. We
             // can't really distinguish the two cases.
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 visible: headsetcontrol.percent == -1 || headsetcontrol.percent == 100
                 width: parent.width / 4
                 height: parent.height / 4
